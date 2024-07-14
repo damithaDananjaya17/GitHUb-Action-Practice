@@ -16,7 +16,7 @@ jobs:
     - name: Install SSH key and configure known hosts
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.SECRETDAMITHA }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -t rsa 47.128.180.235 >> ~/.ssh/known_hosts
         chmod 644 ~/.ssh/known_hosts
