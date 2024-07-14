@@ -1,0 +1,24 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # adjust this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.5
+      with:
+        ssh-private-key: ${{ secrets.SECRETDAMITHA }}
+
+    - name: Deploy over SSH
+      run: |
+        ssh ubuntu@47.128.180.235 "mkdir -p /www/wwwroot/damitha.work.gd"
+        scp -r * ubuntu@47.128.180.235:/www/wwwroot/damitha.work.gd
