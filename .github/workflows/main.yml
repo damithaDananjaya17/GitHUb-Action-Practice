@@ -23,5 +23,4 @@ jobs:
 
     - name: Deploy over SSH
       run: |
-        ssh ubuntu@47.128.180.235 "mkdir -p /www/wwwroot/damitha.work.gd"
         scp -r . ubuntu@47.128.180.235:/www/wwwroot/damitha.work.gd
