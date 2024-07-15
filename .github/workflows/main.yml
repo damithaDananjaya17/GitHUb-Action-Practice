@@ -13,12 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install SSH key
-      uses: webfactory/ssh-agent@v0.5.5
-      with:
-        ssh-private-key: ${{ secrets.SECRETDAMITHA }}
-
-    - name: Deploy over SSH
+    - name: Set up SSH and deploy
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SECRETDAMITHA }}
       run: |
-        ssh ubuntu@47.128.180.235 "mkdir -p /www/wwwroot/damitha.work.gd"
-        scp -r * root@47.128.180.235:/www/wwwroot/damitha.work.gd
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -t rsa 47.128.180.235 >> ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+        scp -r . root@47.128.180.235:/www/wwwroot/damitha.work.gd
+
+
