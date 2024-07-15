@@ -21,3 +21,7 @@ jobs:
     - name: Deploy over SSH
       run: |
         scp -o StrictHostKeyChecking=no -r ./* root@47.128.180.235:/www/wwwroot/damitha.work.gd
+
+    - name: Create timestamp file on server
+      run: |
+        ssh root@47.128.180.235 "touch /www/wwwroot/damitha.work.gd/deployment_$(date +'%Y-%m-%d_%H-%M-%S').txt"
