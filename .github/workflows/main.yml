@@ -13,13 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install SSH key
-      uses: action/ssh-agent@v0.5.3
-      with: 
-        SSH_PRIVATE_KEY: ${{ secrets.SECRETDAMITHA }}
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SECRETDAMITHA }}
 
-    - name: Deploy website via SSH
+    - name: Deploy over SSH
       run: |
+        ssh -o StrictHostKeyChecking=no root@47.128.180.235 "mkdir -p /www/wwwroot/damitha.work.gd"
         scp -r . root@47.128.180.235:/www/wwwroot/damitha.work.gd
-
-
