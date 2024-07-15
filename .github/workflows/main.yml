@@ -13,15 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up SSH and deploy
-      env:
+    - name: Install SSH key
+      uses: action/ssh-agent@v0.5.3
+      with: 
         SSH_PRIVATE_KEY: ${{ secrets.SECRETDAMITHA }}
+
+    - name: Deploy website via SSH
       run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -t rsa 47.128.180.235 >> ~/.ssh/known_hosts
-        chmod 644 ~/.ssh/known_hosts
         scp -r . root@47.128.180.235:/www/wwwroot/damitha.work.gd
 
 
