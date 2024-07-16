@@ -5,6 +5,12 @@
 	box-sizing: border-box;
 }
 
+
+.logo{
+	height: auto;
+	width: 50%;
+}
+
 html {
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
@@ -36,14 +42,14 @@ html {
 	justify-content: space-between;
 }
 .nav-bar .brand a {
-	font-family: 'Flash Back - Demo', sans-serif;
-	font-size: 3rem;
-	color: white;
+	height: 0%;
+	width: auto;
 }
 .nav-bar .nav-list {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-left: 300px;
 }
 .nav-bar .nav-list .hamburger {
 	border: 2px solid white;
@@ -93,6 +99,7 @@ html {
 .nav-bar .nav-list .hamburger .bar::after {
 	bottom: 8px;
 }
+
 .nav-bar .nav-list ul {
 	position: absolute;
 	width: 100%;
@@ -136,6 +143,10 @@ html {
 .nav-bar .nav-list.open ul {
 	transform: translateY(90px);
 }
+
+.listt{
+	margin-right: 40px;
+}
 /* End Nav Bar */
 
 /* Hero Section */
@@ -147,12 +158,14 @@ html {
 	background-color: black;
 	display: flex;
 	flex-direction: column-reverse;
-	justify-content: center;
 	align-items: center;
+	margin-top: 60px;
 }
 .hero .hero-info {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 20px;
+	margin-top: -20px;
 }
 .hero .hero-info .hero-info-heading {
 	font-size: 5rem;
@@ -178,12 +191,16 @@ html {
 }
 .hero .hero-img {
 	height: auto;
-	width: 80%;
+	width: 100%;
 	margin-bottom: 3rem;
+	margin: auto;
+	margin-left: 70px;
+	padding-top: 70px;
+	
 }
 .hero .hero-img img {
-	height: 100%;
-	width: 100%;
+	height: 60%;
+	width: auto;
 }
 /* End Hero Section */
 
@@ -318,18 +335,20 @@ html {
 .services .services-info .service .service-card .service-front .service-front-heading,
 .services .services-info .service .service-card .service-back .service-back-heading {
 	font-size: 2.5rem;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 .services .services-info .service:hover .service-card {
 	transform: rotateY(180deg);
 }
 .services .services-info .service .service-card .service-back .service-back-desc {
 	font-size: 1.3rem;
-	margin-top: 10px;
+	margin-top: 30px;
 	text-align: center;
+	padding-top: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .services .services-info .service:nth-child(2) .service-card .service-front {
-	background-image: url(./images/img-2.jpg);
 	background-size: cover;
 	position: relative;
 	color: white;
@@ -346,6 +365,10 @@ html {
 }
 .services .services-info .service:nth-child(2) .service-card .service-front i {
 	color: white;
+}
+
+.textt{
+	background-color: black;
 }
 /* End Services section  */
 
@@ -440,6 +463,8 @@ html {
 		max-width: 30%;
 		text-align: left;
 	}
+
+
 	.hero .hero-info .hero-info-subheading {
 		font-size: 1.3rem;
 		letter-spacing: .5rem;
@@ -470,6 +495,10 @@ html {
 	.services .services-info .service {
 		margin: 0;
 	}
+
+	.hero-info{
+		margin-bottom: 200px;
+	}
 }
 /* End Media query for desktop and tab  */
 
@@ -483,3 +512,77 @@ html {
 	}
 }
 /* End Media Query For Desktop Only  */
+
+
+@media only screen and (max-width: 480px) {
+	.nav-bar {
+		width: 100%;
+	}
+	.nav-bar .nav-list ul {
+		transform: translateX(-100%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #333;
+		padding-top: 60px;
+		z-index: 1;
+	}
+	.nav-bar .nav-list ul li {
+		display: block;
+		text-align: center;
+		margin: 20px 0;
+	}
+	.hero {
+		height: auto;
+		flex-direction: column;
+		padding-left: 0;
+		justify-content: center;
+		align-items: center;
+	}
+	.hero .hero-info {
+		max-width: 90%;
+		text-align: center;
+		padding: 20px;
+	}
+	.hero .hero-info .hero-info-subheading {
+		font-size: 1rem;
+		letter-spacing: .3rem;
+	}
+	.hero .hero-img {
+		width: 100%;
+		max-width: 300px;
+	}
+	.about {
+		width: 100%;
+		margin: 0 auto;
+		flex-direction: column;
+	}
+	.about .about-info {
+		width: 100%;
+		text-align: center;
+		padding: 0 20px;
+	}
+	.services .services-header .services-header-desc {
+		max-width: 100%;
+		padding-top: 20px;
+		margin: 0 auto;
+	}
+	.services .services-info {
+		flex-direction: column;
+		width: 100%;
+	}
+	.services .services-info .service {
+		margin: 20px 0;
+		width: 100%;
+	}
+	.hero-info {
+		margin-bottom: 50px;
+	}
+	.about-img{
+		visibility: hidden;
+	}
+
+
+}
