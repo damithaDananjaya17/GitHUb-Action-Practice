@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Jersey+10+Charted&family=Laila:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background-color: #454545;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .header-left {
+      flex: 1;
+      text-align: left;
+      padding-left: 20px;
+    }
+    .header-right {
+      flex: 1;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .header-right a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .header-right a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    .profile-container {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .profile{
+      background-color: gray;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      animation: moveProfile 1s ease-out;
+      margin-right: 20px;
+    }
+    @keyframes moveProfile {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .profile-image img {
+      width: 100%;
+      height: auto;
+    }
+    .profile-name {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid;
+      animation: typing 3s steps(30, end);
+    }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    .profile-description {
+      color: #666;
+    }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #e9ecef;
+    }
+
+    .profile{
+      background-color: white;
+    }
+
+    
+    .section:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    .section-header {
+      margin-bottom: 30px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .section-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .project {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 200px;
+      margin-right: 20px;
+      animation: moveBox1 3s linear infinite alternate;
+    }
+    @keyframes moveBox1 {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(10px);
+      }
+    }
+    @keyframes moveBox2 {
+      0% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    .project:nth-child(even) {
+      animation: moveBox2 3s linear infinite alternate;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #FFA500;
+    }
+    .project-description {
+      font-size: 1.1rem;
+      color: #666;
+    }
+    footer, .project-title, .header-left, .header-right a {
+      color: #FFA500;
+    }
+    .section, .profile-name, .profile-container {
+      color: #808080;
+    }
+
+    .text{
+      margin-top: 20px;
+      color: #DC5F00;
+    }
+
+    .imagee{
+      height: 60%;
+      width: auto;
+    }
+
+    .text{
+      font-family: "Mate SC", serif;
+  font-weight: 400;
+  font-style: normal;
+      margin-top: 20px;
+      color: #F28C28;
+    }
+
+
+    .aboutMe::first-letter {
+      font-size: 2em; /* Changes the font size */
+      color: #FF5733; /* Changes the font color */
+    }
+
+    .aboutMeText{
+      font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.profile{
+  height: 400px;
+
+}
+  </style>
+</head>
+<body>
+
+
+
+  
+
+
+  <!-- Header
+  <header>
+    <div class="header-left">
+      Damitha.
+    </div>
+    <div class="header-right">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#recommendations">Recommendations</a>
+      <a href="#thoughts">Thoughts</a>
+    </div>
+  </header>
+
+   -->
+  <!-- Profile 
+ 
+  <div class="profile-container container row mt-5 back">
+    <div class="row justify-content-center">
+      <div class="col-md-auto pl-5 set">
+        <div class="profile-image ml-5">
+          <img src="profile-image.jpg " alt="Profile Image">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="col-md-auto">
+          <div class="profile-name">Damitha Dhananjay........ </div>
+          <div class="profile-description">Undergraduate of University of Kelaniya.equipped me with a strong foundation in networking
+            fundamentals, cloud computing, operating systems (Linux), cybersecurity,
+            and Programming Languages.
+            practical situations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  Section -->
+
+  <section class=" profile section " id="projects">
+    <div class="section-content ">
+      <div class="container"> 
+        <img src="profile-image.jpg" class="imagee" alt="Profile Image">
+        <div class="profile-name text container"><p class="text-white-50 bg-dark">DAMITHA DHANANJAYA</p></div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+  
+
+
+    <!-- About Me Section -->
+    <section class="section" id="about">
+      <div class="section-header mt-5">
+        <h2 class="section-title"><p class="aboutMe">Who am I</p></h2>
+      </div>
+      <div class="section-content">
+        <p class="aboutMeText">Welcome to my digital home! I am an undergraduate student pursuing a Bachelor of Information and Communication Technology (Hons) in Computer Networking. With a strong foundation in networking, cloud computing, Linux, and cybersecurity, I have a genuine passion for technology. As a DevOps enthusiast, I focus on integrating development and operations to enhance productivity. My journey began with a fascination for networks and has evolved into a career driven by continuous learning. When not immersed in tech, I explore trends, contribute to open-source projects, and share knowledge with the community. Let's connect and create something amazing together!</p>
+      </div>
+    </section>
+
+
+
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="section-content">
+      <div class="project">
+        <h3 class="project-title">Project 1</h3>
+        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="project">
+        <h3 class="project-title">Project 2</h3>
+        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="project">
+        <h3 class="project-title">Project 3</h3>
+        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations Section -->
+  <section class="section" id="recommendations">
+    <div class="section-header">
+      <h2 class="section-title">Recommendations</h2>
+    </div>
+    <div class="section-content">
+      <p>Some recommendations or testimonials can go here.</p>
+    </div>
+  </section>
+  <!-- My Thoughts Section -->
+  <section class="section" id="thoughts">
+    <div class="section-header">
+      <h2 class="section-title">My Thoughts</h2>
+    </div>
+    <div class="section-content">
+      <p>Share your thoughts, insights, or blog posts here.</p>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 Your Name
+  </footer>
+</body>
+</html>
